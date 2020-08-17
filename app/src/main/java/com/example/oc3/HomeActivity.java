@@ -9,12 +9,25 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.oc3.api.auth.ApiClient;
+import com.example.oc3.api.auth.TokenResponse;
+import com.example.oc3.api.main.APICourse;
+import com.example.oc3.api.main.CourseList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView navigation;
+    APICourse apiCourse;
 //    NestedScrollView nested_content;
     boolean isNavigationHide = false;
 
@@ -23,6 +36,30 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+//        String ResponseJson = response.body().string();
+//        Gson objGson = new Gson();
+//        TokenResponse objResp = objGson.fromJson(ResponseJson,TokenResponse.class);
+//        getSharedPreferences("OC3",MODE_PRIVATE).edit().putString("token",objResp.getToken()).commit();
+        apiCourse = ApiClient.getClient().create(APICourse.class);
+        Call<List<CourseList>> call = apiCourse.getAllCourseList(sharedPreferences.getString("token"));
+
+        call.enqueue(new Callback<List<CourseList>>() {
+            @Override
+            public void onResponse(Call<List<CourseList>> call, Response<List<CourseList>> response) {
+
+                List<CourseList> courseLists = response.body();
+                List<CourseList> courseLists1 = response.body();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<CourseList>> call, Throwable t) {
+
+                Toast.makeText(HomeActivity.this, "No response From server", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
 //        TabLayout tabLayout = findViewById(R.id.tab_layout);
 //
@@ -67,29 +104,33 @@ public class HomeActivity extends AppCompatActivity {
 //        });
 
         navigation = findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.menuhome);
 //        nested_content = findViewById(R.id.nested_content);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.menuhome:
-                        homepage();
                         return true;
                     case R.id.menusearch:
-                        searchpage();
-                        Toast.makeText(HomeActivity.this,"Search Page",Toast.LENGTH_SHORT).show();
+                        Intent e = new Intent(getApplicationContext(), SearchActivity.class);
+                        startActivity(e);
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.menufavorite:
-                        favoritepage();
-                        Toast.makeText(HomeActivity.this,"favorite Page",Toast.LENGTH_SHORT).show();
+                        Intent d = new Intent(getApplicationContext(), FavoriteActivity.class);
+                        startActivity(d);
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.menuaccount:
-                        accountpage();
-                        Toast.makeText(HomeActivity.this,"Account Page",Toast.LENGTH_SHORT).show();
+                        Intent c = new Intent(getApplicationContext(), AccountActivity.class);
+                        startActivity(c);
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.mycourse:
-                        mycoursepage();
-                        Toast.makeText(HomeActivity.this,"MyCourse Page",Toast.LENGTH_SHORT).show();
+                        Intent b = new Intent(getApplicationContext(), MyCourseActivity.class);
+                        startActivity(b);
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
@@ -102,7 +143,7 @@ public class HomeActivity extends AppCompatActivity {
 //
 //                if(scrollY < oldScrollY){
 //                    animateNavigation(false);
-//                }
+//               FR589OLM M }nm
 //                if(scrollY > oldScrollY){
 //                    animateNavigation(true);
 //                }
@@ -110,26 +151,7 @@ public class HomeActivity extends AppCompatActivity {
 //            }
 //        });
     }
-    private void homepage(){
-        Intent a = new Intent(HomeActivity.this, HomeActivity.class);
-        startActivity(a);
-    }
-    private void mycoursepage(){
-        Intent b = new Intent(HomeActivity.this, SingUp.class);
-        startActivity(b);
-    }
-    private void accountpage(){
-        Intent c = new Intent(HomeActivity.this, SingUp.class);
-        startActivity(c);
-    }
-    private void favoritepage(){
-        Intent d = new Intent(HomeActivity.this, SingUp.class);
-        startActivity(d);
-    }
-    private void searchpage(){
-        Intent e = new Intent(HomeActivity.this, SingUp.class);
-        startActivity(e);
-    }
+
 //    //function for animation bottom navigation
 //    private void animateNavigation(final boolean hide){
 //
