@@ -36,9 +36,9 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
 
         holder.course_name.setText((courseLists.getResults().get(position).getCourseName()));
-        holder.course_duration.setText((courseLists.getResults().get(position).getCourseDuration().toString()));
+        holder.course_duration.setText((courseLists.getResults().get(position).getCourseDuration()));
 
-        Glide.with(context).load(courseLists.getResults().get(position).getCourseImage()).into(holder.course_image);
+        Glide.with(context).load("http://aptechlearning.herokuapp.com/media/ux_big.png").into(holder.course_image);
 
 
 
