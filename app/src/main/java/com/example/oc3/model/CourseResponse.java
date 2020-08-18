@@ -15,9 +15,9 @@ public class CourseResponse {
     @Expose
     private String course_category;
 
-    @SerializedName("pk")
+    @SerializedName("id")
     @Expose
-    private Integer pk;
+    private Integer id;
 
     @SerializedName("course_subcategory")
     @Expose
@@ -57,7 +57,7 @@ public class CourseResponse {
 
     @SerializedName("created_date")
     @Expose
-    private Date created_date;
+    private String created_date;
 
     @SerializedName("username")
     @Expose
@@ -68,8 +68,8 @@ public class CourseResponse {
     private Integer course_fee;
 
 
-    public Integer getPk(){return pk;}
-    public void setPk(Integer pk){this.pk = pk; }
+    public Integer getId(){return id;}
+    public void setId(Integer id){this.id = id; }
 
     public String getCourse_name(){return course_name;}
     public void setCourse_name(String course_name){this.course_name = course_name; }
@@ -104,8 +104,8 @@ public class CourseResponse {
     public String getCourse_image(){return course_image;}
     public void setCourse_image(String course_image){this.course_image = course_image; }
 
-    public Date getCreated_date(){return created_date;}
-    public void setCreated_date(Date created_date){this.created_date = created_date; }
+    public String getCreated_date(){return created_date;}
+    public void setCreated_date(String created_date){this.created_date = created_date; }
 
     public String getUsername(){return username;}
     public void setUsername(String username){this.username = username; }

@@ -2,37 +2,40 @@ package com.example.oc3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.oc3.adapter.CourseAdapter;
 import com.example.oc3.api.auth.ApiClient;
-import com.example.oc3.api.auth.TokenResponse;
 import com.example.oc3.api.main.APICourse;
-import com.example.oc3.api.main.CourseList;
+import com.example.oc3.model.Courses;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
-import com.google.gson.Gson;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class HomeActivity extends AppCompatActivity {
 
+    RecyclerView coursesRecyclerView;
+    CourseAdapter courseAdapter;
     BottomNavigationView navigation;
+    SharedPreferences sharedPreferences;
     APICourse apiCourse;
 //    NestedScrollView nested_content;
     boolean isNavigationHide = false;
-
+    String query = "";
+    String order = "";
+    Integer page = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -40,22 +43,31 @@ public class HomeActivity extends AppCompatActivity {
 //        Gson objGson = new Gson();
 //        TokenResponse objResp = objGson.fromJson(ResponseJson,TokenResponse.class);
 //        getSharedPreferences("OC3",MODE_PRIVATE).edit().putString("token",objResp.getToken()).commit();
+//        = sharedPreferences.getString("token","");
+        String tk = getSharedPreferences("OC3",MODE_PRIVATE).getString("token","");
+        String token = "Token "+ tk;
         apiCourse = ApiClient.getClient().create(APICourse.class);
-        Call<List<CourseList>> call = apiCourse.getAllCourseList(sharedPreferences.getString("token"));
+        coursesRecyclerView = findViewById(R.id.coursesRecyclerView);
 
-        call.enqueue(new Callback<List<CourseList>>() {
+        Call<Courses> call = apiCourse.getAllCourses( token
+//                "","",1
+        );
+        call.enqueue(new Callback<Courses>() {
             @Override
-            public void onResponse(Call<List<CourseList>> call, Response<List<CourseList>> response) {
-
-                List<CourseList> courseLists = response.body();
-                List<CourseList> courseLists1 = response.body();
+            public void onResponse(Call<Courses> call, Response<Courses> response) {
+//                System.out.println("onResponse");
+//                System.out.println(response.body().toString());
+                Courses courseLists = response.body();
+                getAllCourses(courseLists);
 
             }
 
             @Override
-            public void onFailure(Call<List<CourseList>> call, Throwable t) {
+            public void onFailure(Call<Courses> call, Throwable t) {
 
-                Toast.makeText(HomeActivity.this, "No response From server", Toast.LENGTH_SHORT).show();
+//                System.out.println("onResponse");
+//                System.out.println(t.fillInStackTrace());
+                Toast.makeText(HomeActivity.this, "No response From server", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -161,5 +173,15 @@ public class HomeActivity extends AppCompatActivity {
 //        int movey = hide?(2*navigation.getHeight()):0;
 //        navigation.animate().translationY(movey).setStartDelay(100).setDuration(300).start();
 //    }
+
+
+    private void getAllCourses(Courses courseLists){
+
+        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        coursesRecyclerView.setLayoutManager(layoutManager);
+        courseAdapter = new CourseAdapter(this,courseLists);
+        coursesRecyclerView.setAdapter(courseAdapter);
+        courseAdapter.notifyDataSetChanged();
+    }
 
 }

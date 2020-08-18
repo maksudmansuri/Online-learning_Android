@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        signin_button = (Button)findViewById(R.id.signup_button);
-        inputUserNameEditText = (EditText) findViewById(R.id.signupEmailEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
+        signin_button = findViewById(R.id.signup_button);
+        inputUserNameEditText = findViewById(R.id.signupEmailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
 
         signin_button.setOnClickListener(new View.OnClickListener() {
             @Override

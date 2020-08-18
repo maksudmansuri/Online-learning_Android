@@ -31,11 +31,11 @@ public class SingUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_up);
 
-        signup_button = (Button)findViewById(R.id.signup_button);
-        signupEmailEditText = (EditText) findViewById(R.id.signupEmailEditText);
-        signupUserNameEditText = (EditText) findViewById(R.id.signupUserNameEditText);
-        signupPasswordeditText = (EditText) findViewById(R.id.signupPasswordeditText);
-        signupPasswordeditText2 = (EditText) findViewById(R.id.signupPasswordeditText2);
+        signup_button = findViewById(R.id.signup_button);
+        signupEmailEditText = findViewById(R.id.signupEmailEditText);
+        signupUserNameEditText = findViewById(R.id.signupUserNameEditText);
+        signupPasswordeditText = findViewById(R.id.signupPasswordeditText);
+        signupPasswordeditText2 = findViewById(R.id.signupPasswordeditText2);
 
         signup_button.setOnClickListener(new View.OnClickListener() {
             @Override
