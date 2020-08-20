@@ -9,55 +9,55 @@
 
     <ImageView
         android:id="@+id/course_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:scaleType="fitStart"
         app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/course_name"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/nunito_semibold"
-        android:text="Machine Learning"
+        android:text="@string/machine_learning"
         android:textColor="#5F00F8"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/course_duration"
-        android:layout_width="39dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/nunito"
-        android:text="200"
+        android:text="@string/_200"
         android:textColor="#090909"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/course_name"
-        app:layout_constraintTop_toBottomOf="@+id/course_name" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="59dp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:fontFamily="@font/nunito"
-        android:text="Hours"
+        android:text="@string/hours"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/course_duration"
         app:layout_constraintStart_toEndOf="@+id/course_duration"
-        app:layout_constraintTop_toTopOf="@+id/course_duration"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/course_duration" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

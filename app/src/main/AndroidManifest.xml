@@ -16,12 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MyCourseActivity"></activity>
-        <activity android:name=".FavoriteActivity"></activity>
-        <activity android:name=".AccountActivity" ></activity>
-        <activity android:name=".SearchActivity" ></activity>
-        <activity android:name=".HomeActivity" ></activity>
-        <activity android:name=".MainActivity" ></activity>
+        <activity android:name=".CoursePageActivity"></activity>
+        <activity android:name=".MyCourseActivity" />
+        <activity android:name=".FavoriteActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".SingUp" />
         <activity android:name=".SplashActivity">
             <intent-filter>

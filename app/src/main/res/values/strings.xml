@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">OC3</string>
+    <string name="machine_learning">Machine Learning</string>
+    <string name="hours">Hours</string>
+    <string name="_200">200</string>
+    <string name="todo">TODO</string>
 </resources>

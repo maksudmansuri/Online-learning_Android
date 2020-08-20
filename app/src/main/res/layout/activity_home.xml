@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/nunito_semibold"
         android:text="Courses"
         android:textColor="#F8090707"
@@ -68,63 +68,41 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/coursesRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="414dp"
+        android:layout_height="584dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/nunito_semibold"
-        android:text="Courses"
-        android:textColor="#F8090707"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/nunito_semibold"
-        android:text="See All"
-        android:textColor="#97BAF6"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/catCourseRecycleView1"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/coursesRecyclerView" />
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/catCourseRecycleView1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/coursesRecyclerView" />-->
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/catCourseRecycleView2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/catCourseRecycleView1"
-        tools:layout_editor_absoluteX="16dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/catCourseRecycleView3"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/catCourseRecycleView2"
-        tools:layout_editor_absoluteX="0dp" />
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/catCourseRecycleView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/catCourseRecycleView1"-->
+<!--        tools:layout_editor_absoluteX="16dp" />-->
+
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/catCourseRecycleView3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/catCourseRecycleView2"-->
+<!--        tools:layout_editor_absoluteX="0dp" />-->
 
     <!--    <androidx.core.widget.NestedScrollView-->
     <!--        android:id="@+id/nested_content"-->

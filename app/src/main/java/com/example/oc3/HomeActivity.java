@@ -51,9 +51,9 @@ public class HomeActivity extends AppCompatActivity {
         String token = "Token "+ tk;
         apiCourse = ApiClient.getClient().create(APICourse.class);
         coursesRecyclerView = findViewById(R.id.coursesRecyclerView);
-        catCoursesRecyclerView1 = findViewById(R.id.catCourseRecycleView1);
-        catCoursesRecyclerView2 = findViewById(R.id.catCourseRecycleView2);
-        catCoursesRecyclerView3 = findViewById(R.id.catCourseRecycleView3);
+//        catCoursesRecyclerView1 = findViewById(R.id.catCourseRecycleView1);
+//        catCoursesRecyclerView2 = findViewById(R.id.catCourseRecycleView2);
+//        catCoursesRecyclerView3 = findViewById(R.id.catCourseRecycleView3);
 
         Call<Courses> call = apiCourse.getAllCourses( token
 //                "","",1
@@ -183,20 +183,20 @@ public class HomeActivity extends AppCompatActivity {
 
     private void getAllCourses(Courses courseLists){
 
-        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
-        RecyclerView.LayoutManager layoutManager1 = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
-        RecyclerView.LayoutManager layoutManager2 = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
-        RecyclerView.LayoutManager layoutManager3 = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+//        RecyclerView.LayoutManager layoutManager1 = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+//        RecyclerView.LayoutManager layoutManager2 = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+//        RecyclerView.LayoutManager layoutManager3 = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
         coursesRecyclerView.setLayoutManager(layoutManager);
-        catCoursesRecyclerView1.setLayoutManager(layoutManager1);
-        catCoursesRecyclerView2.setLayoutManager(layoutManager2);
-        catCoursesRecyclerView3.setLayoutManager(layoutManager3);
+//        catCoursesRecyclerView1.setLayoutManager(layoutManager1);
+//        catCoursesRecyclerView2.setLayoutManager(layoutManager2);
+//        catCoursesRecyclerView3.setLayoutManager(layoutManager3);
 
         courseAdapter = new CourseAdapter(this,courseLists);
         coursesRecyclerView.setAdapter(courseAdapter);
-        catCoursesRecyclerView1.setAdapter(courseAdapter);
-        catCoursesRecyclerView2.setAdapter(courseAdapter);
-        catCoursesRecyclerView3.setAdapter(courseAdapter);
+//        catCoursesRecyclerView1.setAdapter(courseAdapter);
+//        catCoursesRecyclerView2.setAdapter(courseAdapter);
+//        catCoursesRecyclerView3.setAdapter(courseAdapter);
         courseAdapter.notifyDataSetChanged();
     }
 
