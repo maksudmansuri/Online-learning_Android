@@ -6,6 +6,8 @@ import android.media.session.MediaSession;
 import com.example.oc3.api.main.responses.CourseListResponse;
 import com.example.oc3.model.CourseResponse;
 import com.example.oc3.model.Courses;
+import com.example.oc3.model.Datum;
+import com.example.oc3.model.Moduels;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface APICourse {
@@ -31,14 +34,12 @@ public interface APICourse {
 //            @Query("ordering") String ordering,
 //            @Query("page")Integer page
     );
-//    getCourseList(
-//
-//
-//    ) CourseListResponse;
 
-//
-//    @FormUrlEncoded
-//    @GET("front/list")
-//    @Headers("Athorization") String token;
+    @GET("front/module/{id}/")
+    Call<Moduels> getAllModules(@Header("Authorization") String token,@Path("id") Integer id
+//            @Query("search") String query,
+//            @Query("ordering") String ordering,
+//            @Query("page")Integer page
+    );
 
 }

@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CoursePageActivity"></activity>
+        <activity android:name=".ui.ModulesPageActivity"></activity>
+        <activity android:name=".CoursePageActivity" />
         <activity android:name=".MyCourseActivity" />
         <activity android:name=".FavoriteActivity" />
         <activity android:name=".AccountActivity" />

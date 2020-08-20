@@ -2,11 +2,13 @@ package com.example.oc3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.example.oc3.api.auth.ApiClient;
 import com.example.oc3.api.main.APICourse;
 import com.example.oc3.model.Courses;
+import com.example.oc3.ui.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Call;
@@ -22,12 +25,13 @@ import retrofit2.Response;
 
 public class CoursePageActivity extends AppCompatActivity {
 
+
     ImageView crsPgBck;
     BottomNavigationView navigation;
     APICourse apiCourse;
     TextView crsPgCrsNm,crsPgCrsF;
     Bundle position;
-
+    Button crsPgByNow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +62,17 @@ public class CoursePageActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Courses> call, Throwable t) {
                 Toast.makeText(CoursePageActivity.this, "No response From server", Toast.LENGTH_LONG).show();
+            }
+        });
+        crsPgByNow = findViewById(R.id.crsPgByNow);
+
+        crsPgByNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ModulesPageActivity.class);
+                //Put Value for next intent or Slug
+                i.putExtra("pos",p);
+                startActivity(i);
             }
         });
 

@@ -79,11 +79,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:background="@color/design_default_color_secondary"
+            android:shadowColor="#8655585C"
             android:text="Buy"
             android:textColor="#040404"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#233653E4"
+            app:strokeColor="#739CEF" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
